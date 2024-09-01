@@ -63,6 +63,8 @@ To avoid creating duplicate rules we have different options like Trigger on lead
 
 •	Matching Rule: Ensures that new Leads are matched with existing Accounts using exact and fuzzy matching logic.
 •	Duplicate Rule: Prevents the creation of duplicate Accounts during Lead conversion.
+![image](https://github.com/user-attachments/assets/b1b41f76-5bf3-4d57-9858-a04edb1f4266)
+
 
 **Installation and Deployment**
 Prerequisites
@@ -100,4 +102,9 @@ Reporting
 •	Custom Report:
 o	A custom report has been created to track the percentage of Leads matched to Accounts. This report can be accessed under the Reports tab.
 please check the report in AccountMatchReport folder, report name Percentage_of_Leads_Matched_to_Accounts
+
+![image](https://github.com/user-attachments/assets/13845463-9f75-4d02-9bae-3c5967f0b9a1)
+
+![image](https://github.com/user-attachments/assets/6bb15168-00bb-4f28-aa16-2578a3687afe)
+
 
