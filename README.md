@@ -73,13 +73,20 @@ Deployment Steps
 [https://github.com/your-repo/lead-to-account-matching.git](https://github.com/SumaChintala/LeadToAccountMatchingProject/tree/main)
 2.	Deploy Metadata:
 o	Use a deployment tool to deploy the metadata to your Salesforce org.
-3.	Configure Custom Settings:
+
+4.	Configure Custom Settings:
 o	Navigate to Setup>Custom Settings>Lead To Account Match Settings.
 o	Set the Fuzzy_Threshold__c and Minimum_Company_Name_Length__c according to your matching needs. Custom settings can be created with default value suggestions which are 0.7 and 3
-4.	Test the Functionality:
+**Post deployment script to create the custom setting** 
+ Lead_To_Account_Match_Settings_c leadToAccountMatchSettings = new Lead_To_Account_Match_Settingsc(Fuzzy_Thresholdc = 0.7, Minimum_Company_Name_Length_c = 3);
+        insert leadToAccountMatchSettings;
+
+6.	Test the Functionality:
 o	Ensure that the test classes pass by running all tests in your Salesforce org.
-5.	Review Matching and Duplicate Rules:
+
+8.	Review Matching and Duplicate Rules:
 o	Verify that the Matching and Duplicate Rules are correctly configured under Setup>Duplicate Management.
+
 **Testing Instructions**
 1.	Create Test Data:
 o	Create Leads with varying company names and email addresses.
@@ -89,6 +96,8 @@ o	Sample CSV files are added for Accounts and Leads test data
 o	After inserting Leads, check the Account__c and Account_Matched__c fields to confirm the Lead was correctly matched.
 o	Review the custom report to see the percentage of matched vs. unmatched Leads.
 Reporting
+
 •	Custom Report:
 o	A custom report has been created to track the percentage of Leads matched to Accounts. This report can be accessed under the Reports tab.
+please check the report in AccountMatchReport folder, report name Percentage_of_Leads_Matched_to_Accounts
 
