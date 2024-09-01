@@ -1,4 +1,5 @@
 **Lead-to-Account Matching Solution**
+
 **Overview**
 This Salesforce project implements a Lead-to-Account matching solution that automatically associates incoming Leads with existing Accounts based on predefined criteria. The project includes custom Apex triggers, custom fields, custom settings, matching and duplicate rules, and a reporting mechanism to track the efficiency of the matching process.
 
