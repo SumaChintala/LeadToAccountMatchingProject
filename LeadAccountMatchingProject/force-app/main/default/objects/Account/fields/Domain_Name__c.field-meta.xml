@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Domain_Name__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    CONTAINS(Website, &apos;://&apos;),
+    IF(
+        BEGINS(
+            MID(Website, FIND(&apos;://&apos;, Website) + 3, LEN(Website)),
+            &apos;www.&apos;
+        ),
+        LEFT(
+            MID(Website, FIND(&apos;://&apos;, Website) + 7, LEN(Website)),
+            FIND(&apos;.&apos;, MID(Website, FIND(&apos;://&apos;, Website) + 7, LEN(Website))) - 1
+        ),
+        LEFT(
+            MID(Website, FIND(&apos;://&apos;, Website) + 3, LEN(Website)),
+            FIND(&apos;.&apos;, MID(Website, FIND(&apos;://&apos;, Website) + 3, LEN(Website))) - 1
+        )
+    ),
+    IF(
+        BEGINS(Website, &apos;www.&apos;),
+        LEFT(
+            MID(Website, 5, LEN(Website)),
+            FIND(&apos;.&apos;, MID(Website, 5, LEN(Website))) - 1
+        ),
+        LEFT(
+            Website,
+            FIND(&apos;.&apos;, Website) - 1
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Domain Name</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
