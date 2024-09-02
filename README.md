@@ -26,7 +26,7 @@ o	Fuzzy and Partial Matching:
 
 	Implements fuzzy logic to match Leads with Accounts based on similar company names.
 
-	We need to consider various Salesforce limits here to build the logic, for example to query all the accounts for fuzzy match SOQL 5000 query rows limit, if we are trying to fuzzy match accounts with 10000+ records we might hit CPU time limit 
+	We need to consider various Salesforce limits here to build the logic, for example to query all the accounts for fuzzy match SOQL 50000 query rows limit, if we are trying to fuzzy match accounts with 10000+ records we might hit CPU time limit 
 
 	To avoid the limits I thought of building the logic otherway around, instead of querying all the accounts, first generating the fuzzy word combinations for Company names and querieng accounts with SOQL but in this approach also we might face scalability issues, when we try to insert 100 Leads with long company names there will be too many fuzzy words combinations to be queried.
 
@@ -47,6 +47,8 @@ o	Matched Leads are visible under the related Account records.
 o	Tried to cover many different test cases like blank email, bulk fuzzy match, different type of email domains and website combinations etc. 
 •	Reporting and Analytics:
 o	A custom report tracks the percentage of Leads automatically matched to Accounts, providing insights into the matching process.
+
+
 
 **Custom Metadata and Configuration
 Custom Settings**
@@ -75,6 +77,17 @@ Deployment Steps
 [https://github.com/your-repo/lead-to-account-matching.git](https://github.com/SumaChintala/LeadToAccountMatchingProject/tree/main)
 2.	Deploy Metadata:
 o	Use a deployment tool to deploy the metadata to your Salesforce org.
+I have also created the unlocked package for deployment, please find the details below
+URL: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t680000000eL1AAI 
+Installation Key: LeadToAccount1234
+**Instructions for unlocked package:**
+I had to remove two components from unlocked package due to some technical issues, I have removed account Matching rule and Duplicate rule, these components are available in GitHub project but only removed in Unlocked package, if you want to deploy the unlocked package, please follow the below manual steps to create missing components.
+To create Matching rule: Create New Matching Rule >>  Select Object : Account >> Rule name : Account Name Matching >> Matching Criteria: Field=Account Name and Matching Method=Fuzzy:Company Name and MatchBlank = FALSE >> Save the Matching rule.
+To create Duplicate rule : Select object : Account >> Rule name : Account Duplicate Rule >> Record-Level Security =	Bypass sharing rules >> Action On Create = Block >> Matching Rule : Account Name Matching (select the newly created matching rule) >> Leave conditions section blank >> Save the Duplicate rule.
+ ![image](https://github.com/user-attachments/assets/102f9b30-f2a5-4e41-b6bd-809e59155c30)
+![image](https://github.com/user-attachments/assets/d3b231a5-592f-481f-8359-8ba9e1e1a342)
+
+
 
 4.	Configure Custom Settings:
 o	Navigate to Setup>Custom Settings>Lead To Account Match Settings.
