@@ -115,8 +115,8 @@ Reporting
 •	Custom Report:
 o	A custom report has been created to track the percentage of Leads matched to Accounts. This report can be accessed under the Reports tab.
 please check the report in AccountMatchReport folder, report name Percentage_of_Leads_Matched_to_Accounts
-
-![image](https://github.com/user-attachments/assets/13845463-9f75-4d02-9bae-3c5967f0b9a1)
+![Custom Report Donut](https://github.com/user-attachments/assets/09eba996-c956-4dca-8ddd-42921670bf2f)
+![Custom report Bar](https://github.com/user-attachments/assets/c58214d5-41db-4bdb-950f-cfc893ca7f2b)
 
 ![image](https://github.com/user-attachments/assets/6bb15168-00bb-4f28-aa16-2578a3687afe)
 
